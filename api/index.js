@@ -7,11 +7,7 @@ app.use(cors());
 
 // Mongo access
 const mongoose = require('mongoose');
-mongoose.connect(process.env.DB_URI, {
-  auth: {
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS
-  },
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
