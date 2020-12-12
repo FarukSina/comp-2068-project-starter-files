@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Jumbotron, Container } from 'react-bootstrap';
-
+import classes from "./header.module.css"
 const Header = ({title, children}) => {
   useEffect(() => {
     document.title = title || 'Default tab title if the title property is falsey.';
@@ -8,7 +8,7 @@ const Header = ({title, children}) => {
 
   return (
     <Container className="my-3">
-      <Jumbotron>
+      <Jumbotron className = {classes.jumboTron}>
         <header>
           <h1>{title || 'Default header title if the title property is falsey'}</h1>
           {/* This is a comment in JSX */}

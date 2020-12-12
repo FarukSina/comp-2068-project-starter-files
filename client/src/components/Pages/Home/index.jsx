@@ -5,9 +5,9 @@ import Header from '../../shared/Header';
 const Home = () => {
   return (
     <>
-      <Header title="Your title for the Header component block">
+      <Header title="Welcome to My Book Store">
         <p>
-          This paragraph will be the value for <strong>&#123;children&#125;</strong> in the <strong>Header component</strong>.
+          Welcome to Book Store where you can authenticate and create a new book
         </p>
 
         <p>

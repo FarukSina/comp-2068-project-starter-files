@@ -5,14 +5,15 @@ import { Container } from 'react-bootstrap';
 import Axios from "axios";
 import { NotificationContext } from '../../shared/Notifications/index';
 import {UserContext} from "../../Authentication//UserProvider"
-
+import {GlobalStoreContext} from "../../shared/Globals"
 export default function Edit(props) {
     const [book, setBook] = useState(null);
     const { setNotification } = useContext(NotificationContext);
     const { user } = useContext(UserContext);
+    const { globalStore } = useContext(GlobalStoreContext);
 
     useEffect(() => {
-        Axios.get(`http://localhost:4000/books/${props.match.params.id}?secret_token=${user.token}`)
+        Axios.get(`${globalStore.REACT_APP_ENDPOINT}/books/${props.match.params.id}?secret_token=${user.token}`)
         .then(({ data }) => setBook(data))
         .catch(error => {
           console.error(error.message);
@@ -22,7 +23,7 @@ export default function Edit(props) {
             message: "Couldn't access the specific book___id at this time."
           });
         })
-      }, []);
+      }, [globalStore]);
       console.log("book edit 1 specific id", book)
     return (
         book ? (
@@ -32,7 +33,7 @@ export default function Edit(props) {
         </Header>
         <Container>
         <BookForm
-        endpoint="update"
+        endpoint="books/update/:id"
         buttonLabel = "Update"
         preloadData={book}
         />

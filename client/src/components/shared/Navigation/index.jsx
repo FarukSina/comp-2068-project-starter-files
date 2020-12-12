@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../Authentication/UserProvider';
-
+import classes from "./navbar.module.css"
 const NavLink = (props) => {
   // This function allows us to use React Router
   // with React Bootstrap. Booooya
@@ -23,7 +23,7 @@ const Navigation = () => {
   const { user } = useContext(UserContext);
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar expand="lg" className={classes.navBar}>
       <Navbar.Brand>Book Store</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">

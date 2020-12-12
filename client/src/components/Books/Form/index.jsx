@@ -103,7 +103,7 @@ const BookForm = ({endpoint , buttonLabel, preloadData = {}}) => {
             name="date"
             onChange={handleChange}
             required
-            defaultValue={inputs.date.substring(0,10)}
+            defaultValue={inputs.date ? inputs.date.substring(0,10) : inputs.date}
           />
         </Form.Group>
         <Button type="submit">{ buttonLabel || "Submit" }</Button>
